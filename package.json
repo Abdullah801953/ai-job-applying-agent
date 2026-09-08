@@ -1,0 +1,39 @@
+{
+  "name": "job-apply-ai-agent",
+  "version": "1.0.0",
+  "description": "AI-powered LinkedIn Easy Apply automation agent with a React dashboard.",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "node scripts/test-ai.js",
+    "test:apply": "node scripts/test-apply.js",
+    "agent": "node src/agent.js",
+    "server": "node src/server.js",
+    "ui": "npm --prefix ui run dev",
+    "ui:build": "npm --prefix ui run build",
+    "dev": "concurrently \"npm run server\" \"npm run ui\"",
+    "start": "node src/server.js",
+    "save-session": "node scripts/save-session.js"
+  },
+  "keywords": [
+    "linkedin",
+    "job-applications",
+    "automation",
+    "playwright",
+    "openai",
+    "react"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "openai": "^4.0.0",
+    "pdf-parse": "^2.4.5",
+    "playwright": "^1.63.0"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  }
+}

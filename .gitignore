@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Environment / secrets
+.env
+
+# Build output
+ui/dist/
+
+# Runtime data (resumes, saved sessions)
+data/
+
+# Debug screenshots / dumps
+screenshots/
+
+# Playwright persistent Chrome profile (contains login session)
+.agent-chrome-profile/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

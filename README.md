@@ -138,4 +138,4 @@ Add your own parameters in `scripts/test-apply.js` to run a custom CLI session.
 
 ---
 
-*Built with Groq, Playwright, Express, and React.*
+*Built with Groq, Playwright, Express, and React.*"# ai-job-applying-agent" 

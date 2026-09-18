@@ -131,11 +131,68 @@ Add your own parameters in `scripts/test-apply.js` to run a custom CLI session.
 
 ## Roadmap / Ideas
 
+### 🎯 Core Improvements (LinkedIn)
 - [ ] Support external ("Apply") jobs via the LinkedIn external flow
 - [ ] Resume matching/filter scoring before applying
 - [ ] Per-question answer review/approval queue
 - [ ] Scheduling + email notifications
+- [ ] Better anti-detection (human-like delays, mouse movements)
+
+### 🌐 Multi-Portal Support (High Priority)
+*Goal: Make this a universal job application agent*
+
+- [ ] **Indeed** — Easy Apply + external applications
+- [ ] **Naukri.com** — India's largest job portal
+- [ ] **Glassdoor** — Easy Apply integration
+- [ ] **Wellfound (AngelList)** — Startup jobs
+- [ ] **Monster / CareerBuilder** — Legacy portals
+- [ ] **Company career pages** — Generic form filler for any ATS (Greenhouse, Lever, Workday, etc.)
+- [ ] **Portal abstraction layer** — Plugin architecture so contributors can add new portals easily
+
+### 🧠 AI & Intelligence Features
+- [ ] **Smart job filtering** — AI scores job match % before applying
+- [ ] **Cover letter generation** — Auto-write personalized cover letters per job
+- [ ] **Interview prep** — Generate likely questions based on job description
+- [ ] **Salary negotiation assistant** — AI suggests counter-offers
+- [ ] **Application tracking dashboard** — Kanban board: Applied → Screening → Interview → Offer
+
+### 🛠 Platform & Extensibility
+- [ ] **Plugin system** — `portals/` folder with each portal as independent module
+- [ ] **Browser extension** — One-click apply from any job page
+- [ ] **Headless cloud deployment** — Run on Railway/Render/VPS with persistent sessions
+- [ ] **Multi-user support** — Teams/organizations with shared resume pool
+- [ ] **API webhooks** — Notify external systems (Notion, Slack, Discord) on application events
+
+### 🎨 Unique Differentiators (Make it Stand Out)
+- [ ] **Video resume integration** — Record/upload video answers for async video interviews
+- [ ] **Portfolio/GitHub auto-link** — Detect tech stack in JD, link relevant repos
+- [ ] **Skill gap analysis** — "You're missing X skill for 40% of target roles"
+- [ ] **Application analytics** — Heatmap of which keywords get responses
+- [ ] **Referral network** — Find connections at target companies automatically
 
 ---
 
-*Built with Groq, Playwright, Express, and React.*"# ai-job-applying-agent" 
+## 🤝 Contributing New Portals
+
+The architecture is designed for easy portal addition. See [CONTRIBUTING.md](CONTRIBUTING.md#areas-for-contribution).
+
+**To add a new portal:**
+1. Create `src/portals/<portal-name>.js` implementing the `PortalAdapter` interface
+2. Add selectors, login flow, and application logic
+3. Register in `src/portals/index.js`
+4. Add portal config to UI dashboard
+
+```javascript
+// Example portal adapter interface
+class PortalAdapter {
+  async login(page, credentials) { }
+  async searchJobs(page, keywords, filters) { }
+  async isEasyApply(jobCard) { }
+  async apply(page, jobCard, resume, aiSolver) { }
+  async handleExternalApply(page, url) { }
+}
+```
+
+---
+
+*Built with Groq, Playwright, Express, and React.*"# ai-job-applying-agent"

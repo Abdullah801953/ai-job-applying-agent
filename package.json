@@ -2,17 +2,20 @@
   "name": "job-apply-ai-agent",
   "version": "1.0.0",
   "description": "AI-powered LinkedIn Easy Apply automation agent with a React dashboard.",
-  "main": "src/server.js",
+  "main": "dist/server.js",
   "scripts": {
-    "test": "node scripts/test-ai.js",
-    "test:apply": "node scripts/test-apply.js",
-    "agent": "node src/agent.js",
-    "server": "node src/server.js",
+    "build": "tsc",
+    "test": "node dist/scripts/test-ai.js",
+    "test:apply": "node dist/scripts/test-apply.js",
+    "agent": "node dist/agent.js",
+    "server": "node dist/server.js",
     "ui": "npm --prefix ui run dev",
     "ui:build": "npm --prefix ui run build",
     "dev": "concurrently \"npm run server\" \"npm run ui\"",
-    "start": "node src/server.js",
-    "save-session": "node scripts/save-session.js"
+    "start": "node dist/server.js",
+    "save-session": "node dist/scripts/save-session.js",
+    "lint": "eslint src/**/*.ts scripts/**/*.ts",
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [
     "linkedin",
@@ -23,17 +26,22 @@
     "react"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "commonjs",
   "dependencies": {
-    "cors": "^2.8.6",
-    "dotenv": "^17.4.2",
-    "express": "^5.2.1",
-    "openai": "^4.0.0",
-    "pdf-parse": "^2.4.5",
-    "playwright": "^1.63.0"
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "openai": "^4.67.3",
+    "pdf-parse": "^1.1.1",
+    "playwright": "^1.48.1"
   },
   "devDependencies": {
-    "concurrently": "^10.0.5"
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.7.5",
+    "@types/pdf-parse": "^1.1.4",
+    "concurrently": "^8.2.2",
+    "typescript": "^5.6.3"
   }
 }
